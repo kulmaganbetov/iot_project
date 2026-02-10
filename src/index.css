@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* ========================================================================
+   IoT Security Platform — Global Styles
+   Dark SOC-style theme for cybersecurity visualization
+   ======================================================================== */
+
+@theme {
+  --color-cyber-green: #00ff88;
+  --color-cyber-red: #ff3366;
+  --color-cyber-yellow: #ffaa00;
+  --color-cyber-blue: #00aaff;
+  --color-cyber-purple: #aa44ff;
+  --color-panel: rgba(15, 23, 42, 0.85);
+  --color-panel-border: rgba(0, 170, 255, 0.15);
+  --color-panel-hover: rgba(0, 170, 255, 0.08);
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #030712;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* Animated gradient background for panels */
+.cyber-gradient {
+  background: linear-gradient(135deg, rgba(0, 170, 255, 0.05) 0%, rgba(170, 68, 255, 0.05) 100%);
+}
+
+/* Glowing border effect */
+.glow-border {
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.1), inset 0 0 15px rgba(0, 170, 255, 0.05);
+}
+
+/* Pulse animation for active threats */
+@keyframes threat-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.threat-pulse {
+  animation: threat-pulse 1s ease-in-out infinite;
+}
+
+/* Scan line effect for SOC feel */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Attack flow animation */
+@keyframes attack-flow {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Blinking device under attack */
+@keyframes device-alert {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(2) drop-shadow(0 0 10px #ff3366); }
+}
+.device-alert {
+  animation: device-alert 0.5s ease-in-out infinite;
+}
+
+/* Status indicator dot */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.status-dot.green { background: #00ff88; box-shadow: 0 0 6px #00ff88; }
+.status-dot.yellow { background: #ffaa00; box-shadow: 0 0 6px #ffaa00; }
+.status-dot.red { background: #ff3366; box-shadow: 0 0 6px #ff3366; }
+
+/* Panel component */
+.cyber-panel {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(0, 170, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* Leaflet dark theme overrides */
+.leaflet-container {
+  background: #0a0f1e !important;
+}
+.leaflet-tile-pane {
+  filter: invert(1) hue-rotate(200deg) brightness(0.6) contrast(1.5);
+}
+.leaflet-control-zoom a {
+  background: #1e293b !important;
+  color: #e2e8f0 !important;
+  border-color: #334155 !important;
+}
+.leaflet-control-attribution {
+  background: rgba(15, 23, 42, 0.8) !important;
+  color: #64748b !important;
+}
+.leaflet-control-attribution a {
+  color: #64748b !important;
+}
