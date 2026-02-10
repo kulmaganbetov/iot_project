@@ -57,7 +57,7 @@ function Panel({ args, position, rotation }) {
         <boxGeometry args={args} />
         <meshPhysicalMaterial {...WALL_MATERIAL_PROPS} />
         {/* Glowing edges via drei helper */}
-        <Edges scale={1} threshold={15} color={EDGE_COLOR} lineWidth={1.2} />
+        <Edges scale={1} threshold={15} color={EDGE_COLOR} />
       </mesh>
 
       {/* Wireframe overlay for cyber look */}

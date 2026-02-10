@@ -211,7 +211,8 @@ export default function IoTDevice({
     const t = clock.getElapsedTime();
 
     // Gentle hover / float (sin wave offset by device id hash so devices float out of sync)
-    const idOffset = (device.id || 0) * 1.7;
+    const idHash = String(device.id || '').split('').reduce((s, c) => s + c.charCodeAt(0), 0);
+    const idOffset = idHash * 0.1;
     groupRef.current.position.y = pos[1] + Math.sin(t * 1.5 + idOffset) * 0.08;
 
     // Under-attack rapid scale pulse
